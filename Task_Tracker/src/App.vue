@@ -1,10 +1,39 @@
 <script>
 import Heads from './components/Heads.vue'
+import Tasks from './components/Tasks.vue'
 
 export default{
     name: 'App',
     components: {
-        Heads
+        Heads,
+        Tasks
+    },
+    data(){
+      return {
+         tasks: []
+      }
+    },
+    created() {
+        this.tasks = [
+            {
+                id: 1,
+                text: "You Can Do it",
+                day: "March 1st at 1:00pm",
+                reminder: true,
+            },
+            {
+                id: 2,
+                text: "Wake Up",
+                day: "March 31st at 5:00pm",
+                reminder: false,
+            },
+            {
+                id: 3,
+                text: "Sleep",
+                day: "April 1st at 7:00pm",
+                reminder: true,
+            },
+        ]
     }
 }
 </script>
@@ -14,6 +43,7 @@ export default{
   <header>
     <div class="container"> 
      <Heads title="Palash"/>
+     <Tasks :tasks="tasks"/>
     </div>
   </header>
 </template>
