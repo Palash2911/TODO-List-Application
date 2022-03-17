@@ -13,6 +13,19 @@ export default{
          tasks: []
       }
     },
+    methods:{
+        toggleReminder(id){
+          console.log(id);
+            this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder}: task)
+        },
+        deleteTask(id)
+        {
+          if(confirm('You Sure ?'))
+          {
+            this.tasks = this.tasks.filter((task) => task.id!==id)
+          }
+        }
+    },
     created() {
         this.tasks = [
             {
@@ -43,7 +56,7 @@ export default{
   <header>
     <div class="container"> 
      <Heads title="Palash"/>
-     <Tasks :tasks="tasks"/>
+     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
     </div>
   </header>
 </template>
