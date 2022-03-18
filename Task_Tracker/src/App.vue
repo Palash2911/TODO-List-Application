@@ -13,7 +13,8 @@ export default{
     },
     data(){
       return {
-         tasks: []
+         tasks: [],
+         showAddTask: false,
       }
     },
     methods:{
@@ -30,6 +31,10 @@ export default{
           {
             this.tasks = this.tasks.filter((task) => task.id!==id)
           }
+        },
+        showAdd()
+        {
+          this.showAddTask = !this.showAddTask
         }
     },
     created() {
@@ -61,9 +66,11 @@ export default{
 <template>
   <header>
     <div class="container"> 
-     <Heads title="Palash"/>
-     <AddTask/> 
-     <Tasks @add-task="addTask" @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
+     <Heads @showadd-task="showAdd()" title="Palash" :showAddTask="showAddTask"/>
+     <div v-show="showAddTask">
+        <AddTask @add-task="addTask"/> 
+     </div>
+     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
     </div>
   </header>
 </template>

@@ -5,6 +5,7 @@ export default{
     // props: ['title'], - one way
     props: {
         title: String,
+        showAddTask: Boolean,
     },
     components: {
         Button
@@ -15,8 +16,7 @@ export default{
 <template>
     <header>
         <h1>{{ title }}</h1>
-
-        <Button text="Add Task" color="Green" />
+        <Button @show-add-task="$emit('showadd-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" />
     </header>
 </template>
 

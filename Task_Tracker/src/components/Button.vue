@@ -11,7 +11,7 @@
         },
         methods: {
             onClick() {
-                console.log("Clicked")
+                this.$emit('show-add-task');
             }
         }
     }
