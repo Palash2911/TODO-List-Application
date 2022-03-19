@@ -9,14 +9,26 @@ export default{
     },
     components: {
         Button
-    }
+    },
+    computed: {
+        homePage(){
+            if(this.$router.push === '/')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    },
 }
 </script>
 
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <Button @show-add-task="$emit('showadd-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" />
+        <Button v-show="homePage" @show-add-task="$emit('showadd-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" />
     </header>
 </template>
 

@@ -33,10 +33,24 @@
   padding: 10px 20px;
   cursor: pointer;
   display: flex;
+  margin-top: 20px;
   justify-content: space-between;
 }
 .task.reminder {
   border-left: 5px solid green;
+}
+.delete{
+  all: unset;
+  width: 60px;
+  height: 30px;
+  font-size: 14px; 
+  font-weight: bold;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #d00000;
+  cursor: pointer;
+  text-align: center;
+  color: white;
 }
 .task h3 {
   display: flex;
