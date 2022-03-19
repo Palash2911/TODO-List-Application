@@ -12,7 +12,7 @@ export default{
     },
     computed: {
         homePage(){
-            if(this.$router.push === '/')
+            if(this.$route.path === '/')
             {
                 return true;
             }
